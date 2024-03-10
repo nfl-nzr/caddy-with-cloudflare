@@ -9,7 +9,8 @@ on:
   push:
     branches: [ "master" ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    tags:
+      - 'v*'
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
@@ -63,7 +64,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/nfl-nzr/caddyflare:0.1
+          tags: ghcr.io/nfl-nzr/caddyflare:${GITHUB_REF#refs/tags/}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
