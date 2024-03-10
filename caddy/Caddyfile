@@ -1,5 +1,6 @@
 {env.DOMAIN} {
-    reverse_proxy 10.12.12.2:443
+
+    reverse_proxy {env.PROXY_ADDR}
 
     tls {
         dns cloudflare {env.CF_API_TOKEN}
