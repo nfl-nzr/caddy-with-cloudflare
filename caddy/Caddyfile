@@ -1,4 +1,4 @@
-{env.DOMAIN} {
+{env.DOMAIN}:443 {
 
     reverse_proxy {env.PROXY_ADDR}
 
