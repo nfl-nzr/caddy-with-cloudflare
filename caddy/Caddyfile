@@ -1,15 +1,21 @@
 {env.DOMAIN} {
-
-    reverse_proxy "{env.PROXY_ADDR}" {
-        transport http {
-          tls
-          tls_insecure_skip_verify
+        reverse_proxy "{env.PROXY_ADDR}" {
+                transport http {
+                        tls
+                        tls_insecure_skip_verify
+                }
         }
-    }
 
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
+        tls {
+                dns cloudflare {env.CF_API_TOKEN}
+                resolvers 1.1.1.1
+        }
 
+        log {
+                output file /var/log/caddy/"{env.DOMAIN}".log {
+                        roll_size 10mb
+                        roll_keep 10
+                        roll_keep_for 520h
+                }
+        }
 }
