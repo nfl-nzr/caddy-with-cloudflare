@@ -12,10 +12,11 @@
         }
 
         log {
-                output file /var/log/caddy/{env.DOMAIN}.log {
+                output file /var/log/caddy/site.log {
                         roll_size 10mb
                         roll_keep 10
                         roll_keep_for 520h
                 }
+                level DEBUG
         }
 }
