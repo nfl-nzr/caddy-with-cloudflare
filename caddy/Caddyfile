@@ -14,7 +14,6 @@
             roll_keep 10
             roll_keep_for 520h
         }
-        include http.log.access
         level debug
     }
 }
