@@ -1,6 +1,6 @@
 {
     crowdsec {
-        api_url {env.CROWDSEC_API_URL}
+        api_url http://crowdsec:8080
         api_key {env.CROWDSEC_API_KEY}
         ticker_interval 15s
         #disable_streaming
