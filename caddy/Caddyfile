@@ -8,6 +8,7 @@
             roll_keep_for 520h
         }
         include http.log.access
+        level debug
     }
 }
 
