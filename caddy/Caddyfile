@@ -1,3 +1,16 @@
+{
+    # Configure global access logs
+    # wildcard certs don't generate access logs and this would be useful
+    log {
+        output file /var/log/caddy/access.log {
+            roll_size 10mb
+            roll_keep 10
+            roll_keep_for 520h
+        }
+        include http.log.access
+    }
+}
+
 {env.DOMAIN} {
         reverse_proxy {env.PROXY_ADDR} {
                 transport http {
@@ -9,15 +22,5 @@
         tls {
                 dns cloudflare {env.CF_API_TOKEN}
                 resolvers 1.1.1.1
-        }
-
-        log {
-                output file /var/log/caddy/site.log {
-                        roll_size 10mb
-                        roll_keep 10
-                        roll_keep_for 520h
-                }
-
-                level DEBUG
         }
 }
