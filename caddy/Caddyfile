@@ -1,4 +1,11 @@
 {
+    crowdsec {
+        api_url {env.CROWDSEC_API_URL}
+        api_key {env.CROWDSEC_API_KEY}
+        ticker_interval 15s
+        #disable_streaming
+        #enable_hard_fails
+    }
     # Configure global access logs
     # wildcard certs don't generate access logs and this would be useful
     log {
@@ -13,6 +20,7 @@
 }
 
 {env.DOMAIN} {
+        crowdsec
         reverse_proxy {env.PROXY_ADDR} {
                 transport http {
                         tls
