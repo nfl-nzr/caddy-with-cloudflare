@@ -14,5 +14,3 @@ COPY ./caddy/Caddyfile /etc/caddy/Caddyfile
 
 # Copy caddy binary from base image
 COPY --from=caddy-builder /usr/bin/caddy /usr/bin/caddy
-
-CMD ["/usr/bin/caddy", "run", "-config=/etc/caddy/Caddyfile"]
