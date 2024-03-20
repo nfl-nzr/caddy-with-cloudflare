@@ -1,5 +1,4 @@
 {
-    order crowdsec first
     crowdsec {
         api_url http://crowdsec:8080
         api_key {env.CROWDSEC_API_KEY}
@@ -7,6 +6,7 @@
         #disable_streaming
         #enable_hard_fails
     }
+    order crowdsec first
     # Configure global access logs
     # wildcard certs don't generate access logs and this would be useful
     log {
