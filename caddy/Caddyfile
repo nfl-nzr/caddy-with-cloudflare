@@ -6,7 +6,7 @@
         #disable_streaming
         #enable_hard_fails
     }
-    order crowdsec first
+    #order crowdsec first
     # Configure global access logs
     # wildcard certs don't generate access logs and this would be useful
     log {
