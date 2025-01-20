@@ -40,6 +40,9 @@
     forward_proxy {
         hide_ip
         hide_via
-        probe_resistance secret_value
+        acl {
+            allow 10.12.12.0/24, 192.168.1.0/24
+            deny all
+        }
     }
 }
