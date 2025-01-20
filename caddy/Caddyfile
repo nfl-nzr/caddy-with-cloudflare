@@ -52,3 +52,11 @@
         resolvers 1.1.1.1
     }
 }
+
+:8888 {
+    forward_proxy {
+        hide_ip
+        hide_via
+        probe_resistance secret_value
+    }
+}
